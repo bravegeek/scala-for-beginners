@@ -53,8 +53,18 @@ object Functions extends App {
       case 0 => a
       case _ => fib_tail(n-1, b, a+b)
     }
-    return fib_tail(n, 0, 1)
+    fib_tail(n, 0, 1)
   }
 
   println(fibonacciTailRecursion(11))
+
+  def isPrime(n: Int): Boolean = {
+    def isPrimeUntil(t: Int): Boolean =
+      if (t <= 1) true
+      else n % t != 0 && isPrimeUntil(t - 1)
+
+    isPrimeUntil(n / 2)
+  }
+
+  println(isPrime(6))
 }
